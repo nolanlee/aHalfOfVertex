@@ -73,3 +73,8 @@ hr {
 input, select {
     vertical-align: middle;
 }
+
+
+.damon {
+    border: 1px solid #FFFFFF;
+}
