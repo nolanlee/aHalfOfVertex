@@ -43,8 +43,34 @@
 				</nav>
 			</div>
 			<img id="header-img" src="../images/header.png"></img>
-			<div id="nav-wrap">
-				<nav id="nav-primary"></nav>
+			<div id="nav-wrap">				
+				<ul id="nav-primary">
+					<li>
+						<a class="nav-primary-button nav-primary-button-hover" href="javascript:">绘画</a>
+					</li>
+					<li>
+						<a class="nav-primary-button" href="javascript:">书籍</a>
+					</li>
+					<li>
+						<a class="nav-primary-button" href="javascript:">VI</a>
+					</li>
+					<li>
+						<a class="nav-primary-button" href="javascript:">UI</a>
+					</li>
+					<li>
+						<a class="nav-primary-button" href="javascript:">海报</a>
+					</li>
+					<li>
+						<a class="nav-primary-button" href="javascript:">WEB</a>
+					</li>
+					<li>
+						<a class="nav-primary-button" href="javascript:">建筑</a>
+					</li>
+					<li>
+						<a class="nav-primary-button" href="javascript:">摄影</a>
+					</li>
+				</ul>
+				<input id="search" type="search" placeholder="Search"/>
 			</div>
 		</header>
 		<div id="content"></div>
@@ -53,6 +79,11 @@
 			$("#global-nav .global-nav-button").click(function() {
 				$("#global-nav .global-nav-button-hover").removeClass("global-nav-button-hover");
 				$(this).addClass("global-nav-button-hover");
+			});
+
+			$("#nav-primary .nav-primary-button").click(function() {
+				$("#nav-primary .nav-primary-button-hover").removeClass("nav-primary-button-hover");
+				$(this).addClass("nav-primary-button-hover");
 			});
 		</script>
 	<body>

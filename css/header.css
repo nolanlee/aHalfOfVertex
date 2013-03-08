@@ -3,7 +3,7 @@
     background: #2e3332;
 }
 #global-nav-warp #global-nav-content {
-    width: 1180px;
+    width: 1200px;
     margin: 0 auto;
     font-weight: bolder;
     font-size: 14px;
@@ -73,4 +73,35 @@
  }
  #global-nav-warp #global-nav-content #global-nav-contact #weibo {
  background: url("../images/weibo.gif");
- }*/
+ }
+*/
+#nav-wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+#nav-wrap #nav-primary {
+    float: left;
+}
+
+#nav-wrap #nav-primary li{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#nav-wrap #nav-primary .nav-primary-button {
+    display: block;
+    padding: 10px 25px;
+    text-decoration: none;
+    color: #848e95;
+}
+
+#nav-wrap #nav-primary .nav-primary-button-hover {
+    background: #f76f4b;
+    color: #ffffff;
+}
+
+#nav-wrap #search {
+    float:right;
+    padding: 5px 3px;
+}
