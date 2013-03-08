@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>My Web</title>
+		<link rel="stylesheet" href="../css/reset.css" charset="utf-8"/>
+		<link rel="stylesheet" href="../css/header.css" charset="utf-8"/>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<header>
+			<div id="global-nav-warp">
+				<nav id="global-nav-content">
+					<img id="global-nav-logo" src="../images/logo.png"></img>
+					<div id="global-nav-contact">
+						<img src="../images/renren.png"></img>
+						<img src="../images/qq.gif"></img>
+						<img src="../images/douban.gif"></img>
+						<img src="../images/weibo.gif"></img>
+						<span id="master-name">houjingmeng</span>
+					</div>
+					<ul id="global-nav">
+						<li>
+							<a class="global-nav-button global-nav-button-hover" href="javascript:">home</a>
+						</li>
+						<li>
+							<a class="global-nav-button" href="javascript:">portfolio</a>
+						</li>
+						<li>
+							<a class="global-nav-button" href="javascript:">dailycase</a>
+						</li>
+						<li>
+							<a class="global-nav-button" href="javascript:">about</a>
+						</li>
+						<li>
+							<a class="global-nav-button" href="javascript:">favorite</a>
+						</li>
+						<li>
+							<a class="global-nav-button" href="javascript:">contact</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<img id="header-img" src="../images/header.png"></img>
+			<div id="nav-wrap">
+				<nav id="nav-primary"></nav>
+			</div>
+		</header>
+		<div id="content"></div>
+		<footer></footer>
+		<script type="text/javascript">
+			$("#global-nav .global-nav-button").click(function() {
+				$("#global-nav .global-nav-button-hover").removeClass("global-nav-button-hover");
+				$(this).addClass("global-nav-button-hover");
+			});
+		</script>
+	<body>
+</html>
