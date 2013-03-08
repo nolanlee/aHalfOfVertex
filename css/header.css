@@ -43,13 +43,14 @@
     margin-top: 20px;
 }
 #global-nav-warp #global-nav-content #global-nav-contact:after {
-    clear: both;#global-nav-warp #global-nav-content #global-nav-contact #master-name {
+    clear: both;
+}
+#global-nav-warp #global-nav-content #global-nav-contact #master-name {
     vertical-align: top;
 }
 #global-nav-warp #global-nav-content #global-nav-contact img {
     margin-right: 6px;
 }
-
 #header-img {
     display: block;
     margin: 30px auto;
