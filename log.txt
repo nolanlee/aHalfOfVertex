@@ -1,11 +1,11 @@
 2013-03-11
 -----------------------------------------------------
-what did I do today?
+what did Nolan do today?
 1.添加footer视图
 2.在首页添加新闻视图（右边栏待完成）
 3.修改了heater一些样式
 
-what should Amanda need to do?
+what does Amanda need to do?
 1.确定按钮按下后（:active）的背景颜色.
 2.按钮背景色是渐变的吗？
 3.确定footer内容
