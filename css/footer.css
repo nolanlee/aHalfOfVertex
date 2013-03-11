@@ -1,0 +1,19 @@
+#footer{
+	background: #F86F4B;
+	margin-top: 30px;
+	padding-top: 30px;
+	text-align: center;
+}
+#footer #footer-nav {
+	background: #962C2C;
+	padding: 20px 0 70px;
+	color: #F86F4B;
+}
+#footer #footer-nav .footer-link {
+	text-decoration: none;
+	color: #F86F4B;
+	padding-right: 3px;
+}
+#footer #footer-nav .footer-link:active {
+	color: #FF4032;
+}
