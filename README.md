@@ -1,2 +1,3 @@
-aHalfOfVertex
+=============
+A Half of Vertex
 =============
