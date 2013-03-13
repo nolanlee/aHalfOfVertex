@@ -21,8 +21,17 @@ what did Nolan do today?
 3.修改了heater一些样式.
 
 what does Amanda need to do?
-1.确定按钮按下后（:active）的背景颜色. 
-2.确定分页方案.
-3.确定news是否压小（压小是神马来着？）.
-4.切图（搜索按钮）.
+1.确定按钮按下后（:active）的背景颜色. DONE
+2.确定分页方案. DONE
+3.确定news是否压小（压小是神马来着？）. 
+4.切图（搜索按钮）.DONE
+
+2013-03-13
+-----------------------------------------------------
+what did Nolan do today?
+1.修改time comment,nav button效果
+2.添加添加搜索按钮.
+
+what does Amanda need to do?
+NONE
 

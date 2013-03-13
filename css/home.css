@@ -62,6 +62,25 @@
 	padding-top: 10px;
 	font-size: 14px;
 	margin-right: 8px;
+	text-align: right;
+}
+#content .time-comment .comment-icon {
+	vertical-align: middle;
+	display: inline-block;
+	width: 25px;
+	height: 23px;
+}
+#content .time-comment .news-date-image {
+	background: url(../images/date.png) no-repeat;
+
+}
+#content .time-comment .news-collect-image {
+	background: url(../images/collect.png) no-repeat;
+	text-indent: 20px;
+}
+#content .time-comment .news-like-image {
+	background: url(../images/like.png) no-repeat;
+
 }
 
 #content .news .news-topic{

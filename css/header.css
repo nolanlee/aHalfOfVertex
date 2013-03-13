@@ -31,12 +31,21 @@
     text-decoration: none;
     color: #848e95;
 }
-
-#global-nav-warp #global-nav-content #global-nav .global-nav-button: active {
-    color: #962C2C;
+#global-nav-warp #global-nav-content #global-nav .global-nav-button:hover {
+    background-image: -webkit-linear-gradient( #6a6a6a, #3e3e3e);
+    background-image: -moz-linear-gradient( #6a6a6a, #3e3e3e);
+    background-image: -ms-linear-gradient( #6a6a6a, #3e3e3e);
+    background-color: #5c5c5c;
+    border-radius: 5px;
 }
 
-#global-nav-warp #global-nav-content #global-nav .global-nav-button-hover {
+#global-nav-warp #global-nav-content #global-nav .global-nav-button:active {
+    background: #16181a;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+#global-nav-warp #global-nav-content #global-nav .global-nav-button-selected {
     background: #16181a;
     border-radius: 5px;
     color: #ffffff;
@@ -84,10 +93,12 @@
     width: 1200px;
     margin: 0 auto;
 }
+#nav-wrap #nav-primary {
+    word-spacing: -6px;
+}
 
 #nav-wrap #nav-primary li{
     display: inline-block;
-    margin-right: 10px;
 }
 
 #nav-wrap #nav-primary .nav-primary-button {
@@ -95,29 +106,46 @@
     padding: 10px 25px;
     text-decoration: none;
     color: #848e95;
+    width: 40px;
+    text-align: center;
+}
+#nav-wrap #nav-primary .nav-primary-button:active {
+    background: #eb5b36;
+    color: #848e95;
 }
 
-#nav-wrap #nav-primary .nav-primary-button-hover {
+#nav-wrap #nav-primary .nav-primary-button-selected {
     background: #f76f4b;
     color: #ffffff;
 }
-
-#nav-wrap #search-warp {
-    float:right;
-    padding: 5px 3px;
-    border: 1px solid #dddddd;
-    border-radius: 5px;
-    box-shadow: 0px 0px 0 #fff,0px 0px 0 rgb(196, 196, 196),0px 0px 10px rgba(0, 0, 0, .1);
-    margin-right: 70px;
-}
-
 #nav-wrap #search {
+    float:right;
+    margin-right: 70px;
+    word-spacing: -6px;        
+}
+#nav-wrap #search-input {
     outline: none;
     padding: 5px 10px;
     border: 0;
     background: transparent;
 }
 
+#nav-wrap #search-warp {
+    display: inline-block;
+    padding: 5px 3px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    box-shadow: 0px 0px 0 #fff,0px 0px 0 rgb(196, 196, 196),0px 0px 10px rgba(0, 0, 0, .1);
+}
+#nav-wrap #search-button {
+    display: inline-block;
+    margin-left: 4px;
+    width: 41px;
+    height:41px;
+    border-radius: 5px;
+    vertical-align: bottom;
+    background: url(../images/search.png) no-repeat -1px;
+}
 #nav-wrap: after {
     clear: both;
 }
