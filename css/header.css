@@ -88,7 +88,7 @@
  #global-nav-warp #global-nav-content #global-nav-contact #weibo {
  background: url("../images/weibo.gif");
  }
-*/
+ */
 #nav-wrap {
     width: 1200px;
     margin: 0 auto;
@@ -97,7 +97,7 @@
     word-spacing: -6px;
 }
 
-#nav-wrap #nav-primary li{
+#nav-wrap #nav-primary li {
     display: inline-block;
 }
 
@@ -119,9 +119,8 @@
     color: #ffffff;
 }
 #nav-wrap #search {
-    float:right;
+    float: right;
     margin-right: 70px;
-    word-spacing: -6px;        
 }
 #nav-wrap #search-input {
     outline: none;
@@ -135,14 +134,13 @@
     padding: 5px 3px;
     border: 1px solid #dddddd;
     border-radius: 5px;
-    box-shadow: 0px 0px 0 #fff,0px 0px 0 rgb(196, 196, 196),0px 0px 10px rgba(0, 0, 0, .1);
+    box-shadow: 0px 0px 0 #fff, 0px 0px 0 rgb(196, 196, 196), 0px 0px 10px rgba(0, 0, 0, .1);
 }
 #nav-wrap #search-button {
     display: inline-block;
-    margin-left: 4px;
     width: 41px;
-    height:41px;
-    border-radius: 5px;
+    height: 41px;
+    border-radius: 15px;
     vertical-align: bottom;
     background: url(../images/search.png) no-repeat -1px;
 }
@@ -151,7 +149,7 @@
 }
 
 #content {
-    width:960px;
+    width: 960px;
     padding: 0 10px;
     margin: 0 auto;
 }
