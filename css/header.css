@@ -1,6 +1,7 @@
 #global-nav-warp {
     width: 100%;
     background: #2e3332;
+    
 }
 #global-nav-warp #global-nav-content {
     width: 1200px;
@@ -121,6 +122,7 @@
 #nav-wrap #search {
     float: right;
     margin-right: 70px;
+
 }
 #nav-wrap #search-input {
     outline: none;
@@ -131,6 +133,7 @@
 
 #nav-wrap #search-warp {
     display: inline-block;
+    background: #f8f8f8;
     padding: 5px 3px;
     border: 1px solid #dddddd;
     border-radius: 5px;
