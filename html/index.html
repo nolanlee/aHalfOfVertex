@@ -106,21 +106,21 @@
 			<div class="news-wrap">
 				<div class="time-comment">
 					<div>
-						<lable class="news-date comment">
+						<span class="news-date comment">
 							2013-3-15
-						</lable>
+						</span>
 						<a class="comment-icon news-date-image" href="javascript:"></a>
 					</div>
 					<div>
-						<lable class="news-collect comment">
+						<span class="news-collect comment">
 							3
-						</lable>
+						</span>
 						<a class="comment-icon news-collect-image"  href="javascript:"></a>
 					</div>
 					<div>
-						<lable class="news-like comment">
+						<span class="news-like comment">
 							15
-						</lable>
+						</span>
 						<a class="comment-icon news-like-image"  href="javascript:" ></a>
 					</div>
 				</div>
@@ -136,21 +136,21 @@
 			<div class="news-wrap">
 				<div class="time-comment">
 					<div>
-						<lable class="news-date comment">
+						<span class="news-date comment">
 							2013-3-15
-						</lable>
+						</span>
 						<a class="comment-icon news-date-image" href="javascript:"></a>
 					</div>
 					<div>
-						<lable class="news-collect comment">
+						<span class="news-collect comment">
 							3
-						</lable>
+						</span>
 						<a class="comment-icon news-collect-image"  href="javascript:"></a>
 					</div>
 					<div>
-						<lable class="news-like comment">
+						<span class="news-like comment">
 							15
-						</lable>
+						</span>
 						<a class="comment-icon news-like-image"  href="javascript:" ></a>
 					</div>
 				</div>
@@ -166,21 +166,21 @@
 			<div class="news-wrap">
 				<div class="time-comment">
 					<div>
-						<lable class="news-date comment">
+						<span class="news-date comment">
 							2013-3-15
-						</lable>
+						</span>
 						<a class="comment-icon news-date-image" href="javascript:"></a>
 					</div>
 					<div>
-						<lable class="news-collect comment">
+						<span class="news-collect comment">
 							3
-						</lable>
+						</span>
 						<a class="comment-icon news-collect-image"  href="javascript:"></a>
 					</div>
 					<div>
-						<lable class="news-like comment">
+						<span class="news-like comment">
 							15
-						</lable>
+						</span>
 						<a class="comment-icon news-like-image"  href="javascript:" ></a>
 					</div>
 				</div>
@@ -193,6 +193,44 @@
 					</div>
 				</div>
 			</div>
+			<ul id="pagination">
+				<li>
+					<a id="previous" class="pagination-button" href="javascript:">FRONT</a>
+				</li>
+				<li>
+					<a class="page-num page-num-selected" href="javascript:">1</a>
+				</li>
+				<li>
+					<a class="page-num" href="javascript:">2</a>
+				</li>
+				<li>
+					<a class="page-num" href="javascript:">4</a>
+				</li>
+				<li>
+					<a class="page-num" href="javascript:">5</a>
+				</li>
+				<li>
+					<a class="page-num" href="javascript:">6</a>
+				</li>
+				<li>
+					...
+				</li>
+				<li>
+					<a class="page-num" href="javascript:">14</a>
+				</li>
+				<li>
+					<a class="page-num" href="javascript:">15</a>
+				</li>
+				<li>
+					<a id="next" class="pagination-button" href="javascript:">NEXT</a>
+				</li>
+				<li>
+					<input id="pageNum" type="text"/>
+				</li>
+				<li>
+					<a id="go" class="pagination-button" href="javascript:">GO</a>
+				</li>
+			</ul>
 		</div>
 		<div id="footer">
 			<div id="footer-nav">
@@ -210,5 +248,6 @@
 				$(this).addClass("nav-primary-button-selected");
 			});
 		</script>
+		<script type="text/javascript" src="../js/pagination.js" charset="utf-8"></script>
 	<body>
 </html>

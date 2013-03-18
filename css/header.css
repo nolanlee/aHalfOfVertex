@@ -1,7 +1,6 @@
 #global-nav-warp {
     width: 100%;
     background: #2e3332;
-    
 }
 #global-nav-warp #global-nav-content {
     width: 1200px;
@@ -39,13 +38,11 @@
     background-color: #5c5c5c;
     border-radius: 5px;
 }
-
 #global-nav-warp #global-nav-content #global-nav .global-nav-button:active {
     background: #16181a;
     border-radius: 5px;
     color: #ffffff;
 }
-
 #global-nav-warp #global-nav-content #global-nav .global-nav-button-selected {
     background: #16181a;
     border-radius: 5px;
@@ -97,11 +94,9 @@
 #nav-wrap #nav-primary {
     word-spacing: -6px;
 }
-
 #nav-wrap #nav-primary li {
     display: inline-block;
 }
-
 #nav-wrap #nav-primary .nav-primary-button {
     display: block;
     padding: 10px 25px;
@@ -114,15 +109,14 @@
     background: #eb5b36;
     color: #848e95;
 }
-
 #nav-wrap #nav-primary .nav-primary-button-selected {
     background: #f76f4b;
+    box-shadow: 0px 0px 0 #fff, 0px 0px 0 rgb(196, 196, 196), 0px 0px 10px rgba(0, 0, 0, .3);
     color: #ffffff;
 }
 #nav-wrap #search {
     float: right;
     margin-right: 70px;
-
 }
 #nav-wrap #search-input {
     outline: none;
@@ -130,7 +124,6 @@
     border: 0;
     background: transparent;
 }
-
 #nav-wrap #search-warp {
     display: inline-block;
     background: #f8f8f8;

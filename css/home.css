@@ -14,7 +14,6 @@
     top: 100px;
     right: 40px;
 }
-
 #content #content-sidebar:after {
     clear: both;
 }
@@ -88,11 +87,57 @@
     font-size: 24px;
     font-weight: bolder;
 }
-
 #content .news .news-content {
     margin: 0 25px 25px 100px;
     line-height: 20px;
 }
 #content .news .news-content .news-image {
     width: 100%;
+}
+#pagination {
+    position: relative;
+    width: 532px;
+    left: 112px;
+    margin-top: 20px;
+    background: rgba(142, 142, 143, 0.25);
+    padding: 10px;
+    text-align: center;
+}
+#pagination a {
+    text-decoration: none;
+    color: #999999;
+}
+#pagination .pagination-button {
+    font-size: 24px;
+    font-weight: bolder;
+    margin: 0 10px;
+}
+#pagination .pagination-button:active {
+    color: #3E3E3E;
+}
+#pagination .page-num {
+    display: inline-block;
+    text-align: center;
+    vertical-align: 10%;
+    line-height: 25px;
+    width: 25px;
+    height: 25px;
+    background: rgba(142, 142, 143, 0.25);
+}
+#pagination .page-num-selected {
+    background: #f76f4b;
+    color: #ffffff;
+    box-shadow: 0px 0px 0 #fff, 0px 0px 0 rgb(196, 196, 196), 0px 0px 10px rgba(0, 0, 0, .3);
+}
+#pagination .page-num:active {
+    background: #f76f4b;
+    color: #ffffff;
+    box-shadow: 0px 0px 0 #fff, 0px 0px 0 rgb(196, 196, 196), 0px 0px 10px rgba(0, 0, 0, .3);
+}
+#pagination li {
+    display: inline-block;
+}
+#pagination #pageNum {
+    width: 30px;
+    vertical-align: text-bottom;
 }
