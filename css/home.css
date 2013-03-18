@@ -141,3 +141,8 @@
     width: 30px;
     vertical-align: text-bottom;
 }
+#loadingImg {
+    position: relative;
+    left: 270px;
+    margin-top: 20px;
+}
