@@ -94,11 +94,15 @@
 #content .news .news-content .news-image {
     width: 100%;
 }
-#pagination {
+#pagination-wrap {
     position: relative;
     width: 552px;
     left: 112px;
     margin-top: 20px;
+    text-align: center;
+}
+#pagination {
+     display: inline-block;
     background: rgba(142, 142, 143, 0.25);
     padding: 10px 0;
     text-align: center;
@@ -112,14 +116,18 @@
     font-weight: bolder;
     margin: 0 6px;
 }
-#pagination .pagination-button:active {
+#pagination .button-disabled {
+    color: #cccccc;
+}
+#pagination .button-enabled:active {
     color: #3E3E3E;
 }
 #pagination .page-num {
     display: inline-block;
     text-align: center;
+    margin: 0 3px;
     vertical-align: 10%;
-    line-height: 25px;
+    line-height: 26px;
     width: 25px;
     height: 25px;
     background: rgba(142, 142, 143, 0.25);
@@ -137,11 +145,14 @@
 #pagination li {
     display: inline-block;
 }
-#pagination #pageNum {
+#pagination .break-hidden{
+    display: none;
+}
+#pagination #page-num {
     width: 30px;
     vertical-align: text-bottom;
 }
-#loadingImg {
+#loading-img {
     position: relative;
     left: 270px;
     margin-top: 20px;
