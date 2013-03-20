@@ -34,7 +34,7 @@
 	};
 
 	var switchBreak = function(pageNum) {
-
+		
 	};
 
 	var renderPagination = function(pageTotal, partLength) {
