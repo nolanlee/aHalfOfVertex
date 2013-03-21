@@ -37,9 +37,18 @@ NONE
 
 2013-03-20
 -----------------------------------------------------
-what did NOlan do today?
+what did Nolan do today?
 1.滑动加载
 2.分页栏 （功能未完善）
 
 what does Amanda nee to do?
 目前还没..候命中..哈哈 ：）
+
+2013-03-121
+-----------------------------------------------------
+what did Nolan do today?
+1.use mustache.js and require.js
+2.refine pagination
+
+what does Amanda need to do?
+1.尽快提供标准图标（背景镂空）
