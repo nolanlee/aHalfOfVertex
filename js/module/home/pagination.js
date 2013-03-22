@@ -1,4 +1,4 @@
-define(['lib/mustache', 'templete/newsTemplete'], function(Mustache, NewsTemplete) {
+define(['lib/mustache', 'templete/newsTemplete'], function (Mustache, NewsTemplete) {
     var LOAD_OFFSET = 140,
         PAGE_LENGTH = 15,
         PAGINATION_RANGE = 5,
@@ -7,6 +7,7 @@ define(['lib/mustache', 'templete/newsTemplete'], function(Mustache, NewsTemplet
 
     var loadIndex = 1,
         currentPageNum = 1,
+        frontPageTotal = 1,
         PaginationElements = {},
         $doc = $(document),
         $win = $(window),
@@ -14,78 +15,91 @@ define(['lib/mustache', 'templete/newsTemplete'], function(Mustache, NewsTemplet
         $newsList = $('#news-list'),
         $loadingImg = $('#loading-img');
 
-    var displayLoadingImg = function() {
+    var displayLoadingImg = function () {
         $loadingImg.css('display', 'block');
     };
 
-    var disappearedLoadingImg = function() {
+    var disappearedLoadingImg = function () {
         $loadingImg.css('display', 'none');
     };
 
-    var renderPagination = function(pageNum, pageTotal) {
-        var pResult,
-            pFloatBegin,
-            frontPageTotal = Math.ceil(pageTotal / NEWS_PARTS),
-            pRange = frontPageTotal < (PAGINATION_RANGE + 2) ? (frontPageTotal - 2) : PAGINATION_RANGE,
-            preBreak = '<li><span id="pre-break">......<span></li>',
-            nextBreak = '<li><span id="next-break">......<span></li>',
-            ptPart1 = '<li><a class="page-num',
-            ptPart2 = '" href="javascript:">'
-            ptPart3 = '</a></li>'
-            ptSelected = ' page-num-selected',
-            ptHeader = '<div id="pagination-wrap"><ul id="pagination"><li><a id="previous" class="pagination-button button-enabled" href="javascript:">FRONT</a></li><li><a class="page-num" href="javascript:">1</a></li>',
-            ptFooter = '<li><a class="page-num" href="javascript:">' + frontPageTotal + '</a></li><li><a id="next" class="pagination-button button-enabled" href="javascript:">NEXT</a></li><li><input id="page-num" type="text"/></li><li><a id="go" class="pagination-button button-enabled" href="javascript:">GO</a></li></ul></div>';
+    var paginationFactory = function (pageNum, pageTotal) {
+        var floatListBegin,
+            Pagination = {
+                pageNumList: []
+            };
+            
+        frontPageTotal = Math.ceil(pageTotal / NEWS_PARTS);
 
-        var floatBeginFactory = function(floatBegain) {
+        var floatBeginFactory = function () {
             if ((pageNum - 2) > 1 && (pageNum + 2) < frontPageTotal) {
-                floatBegain = pageNum - 2;
+                floatBegin = pageNum - 2;
             } else if ((pageNum - 2) <= 1 && (pageNum + 2) < frontPageTotal) {
-                floatBegain = 2;
+                floatBegin = 2;
             } else {
-                floatBegain = frontPageTotal - PAGINATION_RANGE;
+                floatBegin = frontPageTotal - PAGINATION_RANGE;
             }
-            return floatBegain;
+            return floatBegin;
         };
 
-        var switchBreak = function(pageNum, frontPageTotal) {
-            var rangeRadius = Math.ceil((PAGINATION_RANGE + 1) / 2);
+        floatListBegin = floatBeginFactory();
+        
+        if (pageNum === 1) {
+            Pagination.preDisabled = true;
+            Pagination.pageNumList[0] = {
+                pageNum: 1,
+                pageSelected: true
+            };
+        } else {
+            Pagination.preEnabled = true;
+            Pagination.pageNumList[0] = {
+                pageNum: 1
+            };
+        }
 
-            if (pageNum > rangeRadius + 1) {
-                ptHeader = ptHeader + preBreak;
+        if (pageNum === frontPageTotal) {
+            Pagination.nextDisabled = true;
+            Pagination.pageNumList[PAGINATION_RANGE + 1] = {
+                pageNum: frontPageTotal,
+                pageSelected: true
+            };
+        } else {
+            Pagination.nextEnabled = true;
+            Pagination.pageNumList[PAGINATION_RANGE + 1] = {
+                pageNum: frontPageTotal
+            };
+        }
+
+        if(floatListBegin > 2) {
+             Pagination.pageNumList[0].pageBreak = true;
+        }
+
+        for (var i = 0; i <PAGINATION_RANGE; i++) {
+            var _pageNum = i + floatListBegin;
+
+            Pagination.pageNumList[i + 1] = {pageNum: _pageNum};
+
+            if(i + floatListBegin === pageNum) {
+                Pagination.pageNumList[i + 1].pageSelected = true;
             }
 
-            if (pageNum < frontPageTotal - PAGINATION_RANGE + rangeRadius - 1) {
-                ptFooter = nextBreak + ptFooter;
-            }
-        };
-
-
-        pFloatBegin = floatBeginFactory(pFloatBegin);
-        switchBreak(pageNum, frontPageTotal);
-
-        pResult = ptHeader;
-
-        for (var i = 0; i < pRange; i++) {
-            if(pFloatBegin + i == currentPageNum) {
-               pResult += ptPart1 + ptSelected + ptPart2 + (pFloatBegin + i) + ptPart3;
-            } else {
-                pResult += ptPart1 + ptPart2 + (pFloatBegin + i) + ptPart3;
+            if(i + 1 >= PAGINATION_RANGE && _pageNum < frontPageTotal - 1) {
+                Pagination.pageNumList[i + 1].pageBreak = true;
             }
         }
 
-        pResult += ptFooter;
-        return pResult;
+        return Pagination;
     };
 
-    var doPagination = function() {
+    var doPagination = function () {
         PaginationElements.$pagination.remove();
         PaginationElements = {};
         $newsList.empty();
         initPage();
     };
 
-    var initPagination = function() {
-        var initPaginationElements = function() {
+    var initPagination = function () {
+        var initPaginationElements = function () {
             PaginationElements.$pagination = $('#pagination-wrap'),
             PaginationElements.$previous = $('#previous'),
             PaginationElements.$next = $('#next'),
@@ -94,31 +108,27 @@ define(['lib/mustache', 'templete/newsTemplete'], function(Mustache, NewsTemplet
             PaginationElements.$pageNums = $('.page-num');
         };
 
-        var initPaginationStyle = function() {
-
-        };
-
-        var initPaginationAction = function() {
-            PaginationElements.$pageNums.on('click', function() {
+        var initPaginationAction = function () {
+            PaginationElements.$pageNums.on('click', function () {
                 currentPageNum = parseInt($(this).html());
                 doPagination();
             });
 
-            PaginationElements.$previous.on('click', function() {
+            PaginationElements.$previous.on('click', function () {
                 if (currentPageNum > 1) {
                     currentPageNum--;
                     doPagination();
                 }
             });
 
-            PaginationElements.$next.on('click', function() {
-                if (currentPageNum < 1) {
+            PaginationElements.$next.on('click', function () {
+                if (currentPageNum < frontPageTotal) {
                     currentPageNum++;
                     doPagination();
                 }
             });
 
-            PaginationElements.$go.on('click', function() {
+            PaginationElements.$go.on('click', function () {
                 var _pageNum = PaginationElements.$pageNumInput.val();
 
                 if (_pageNum && _pageNum.match('^[0-9]*[1-9][0-9]*$')) {
@@ -135,11 +145,12 @@ define(['lib/mustache', 'templete/newsTemplete'], function(Mustache, NewsTemplet
         initPaginationAction();
     };
 
-    var renderNews = function(data) {
-        if ($('.news-wrap').length >= data.pageLength * NEWS_PARTS) {
+    var renderNews = function (data) {
+        if ($('.news-wrap')
+            .length >= data.pageLength * NEWS_PARTS) {
             loadIndex = 1;
             unbindScroll();
-            $content.append(renderPagination(currentPageNum, data.pageTotal));
+            $content.append(Mustache.render(NewsTemplete.paginationTemplate, paginationFactory(currentPageNum, data.pageTotal)));
             initPagination();
         } else {
             loadIndex++;
@@ -150,20 +161,21 @@ define(['lib/mustache', 'templete/newsTemplete'], function(Mustache, NewsTemplet
             }
 
             if (data != null) {
-                $newsList.append(Mustache.render(NewsTemplete.templete, data));
+                $newsList.append(Mustache.render(NewsTemplete.newsTemplete, data));
             }
 
             disappearedLoadingImg();
         }
     };
 
-    var getNews = function(handler) {
-        $.get(NEWS_URL, (currentPageNum * NEWS_PARTS) + loadIndex, function(data) {
+    var getNews = function (handler) {
+        $.get(NEWS_URL, (currentPageNum * NEWS_PARTS) + loadIndex, function (
+        data) {
             handler(data);
         });
     };
 
-    var loadNext = function() {
+    var loadNext = function () {
         var windowHeight = $win.height() + $win.scrollTop(),
             loadHeight = $doc.height() - LOAD_OFFSET;
 
@@ -172,15 +184,15 @@ define(['lib/mustache', 'templete/newsTemplete'], function(Mustache, NewsTemplet
         }
     };
 
-    var bindScroll = function() {
-        $doc.bind('scroll', loadNext);
+    var bindScroll = function () {
+        $win.bind('scroll', loadNext);
     };
 
-    var unbindScroll = function() {
-        $doc.unbind('scroll', loadNext);
+    var unbindScroll = function () {
+        $win.unbind('scroll', loadNext);
     };
 
-    var initPage = function() {
+    var initPage = function () {
         bindScroll();
         getNews(renderNews);
     };

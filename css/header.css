@@ -67,26 +67,6 @@
     display: block;
     margin: 30px auto;
 }
-/*
- #global-nav-warp #global-nav-content #global-nav-contact a {
- display: inline-block;
- margin: 0 3px;
- width: 19px;
- height: 19px;
- }
- #global-nav-warp #global-nav-content #global-nav-contact #renren {
- background: url("../images/renren.png");
- }
- #global-nav-warp #global-nav-content #global-nav-contact #qq {
- background: url("../images/qq.gif");
- }
- #global-nav-warp #global-nav-content #global-nav-contact #douban {
- background: url("../images/douban.gif");
- }
- #global-nav-warp #global-nav-content #global-nav-contact #weibo {
- background: url("../images/weibo.gif");
- }
- */
 #nav-wrap {
     width: 1200px;
     margin: 0 auto;
