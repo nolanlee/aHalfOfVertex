@@ -1,0 +1,89 @@
+#contact-content {
+	background: #ffffff;
+	padding: 40px;
+	border-radius: 40px;
+	box-shadow: 0px 0px 0 #fff, 0px 0px 0 rgb(196, 196, 196), 0px 0px 10px rgba(0, 0, 0, .1);
+}
+#contact-content #message-content {
+	display: inline-block;
+	width: 68%;
+}
+#contact-content #message-content .input-control {
+	margin: 15px 20px;
+}
+#contact-content #message-content .input-control .message-label {
+	display: inline-block;
+	width: 80px;
+}
+#contact-content #message-content .input-control .message-input {
+	height: 25px;
+	border: 1px solid #ddd
+}
+#contact-content #message-content .input-control #message-name {
+	width: 250px;
+}
+#contact-content #message-content .input-control #message-email {
+	width: 320px;
+}
+#contact-content #message-content .input-control #message-words {
+	width: 350px;
+	height: 140px;
+	border: 1px solid #ddd;
+}
+#contact-content #message-content .input-control #message-website {
+	width: 390px;
+}
+#contact-content #message-content .input-control #meassage-label {
+	vertical-align: top;
+	line-height: 30px;
+}
+#contact-content #message-content #submit-message {
+	display: inline-block;
+	padding: 15px 34px;
+	background: #BBDD6E;
+	text-decoration: none;
+	color: #333333;
+	font-weight: bolder;
+	position: relative;
+	left: 72%;
+	margin-top: 10px;
+	font-size: 24px;
+}
+#contact-content #message-content #meassage-header {
+	padding: 0 25px 15px;
+	font-size: 27px;
+	border-bottom: 4px solid #333333;
+}
+#contact-content #question-content {
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 5%;
+	width: 26%;
+}
+#contact-content #question-content #question-header{
+	padding: 16px 25px 10px;
+	border-bottom: 2px solid #333333;
+	color: #333333;
+}
+#contact-content #question-content #question-body{
+	padding: 10px;
+	list-style: none;
+}
+#contact-content #question-content #question-body .question{
+	display: block;
+	color: #333333;
+	font-weight: bolder;
+	margin-top: 15px;
+}
+#contact-content #question-content #question-body .answer{
+	margin: 5px 0;
+	display: block;
+	line-height: 18px;
+}
+#contact-content #question-content #question-body #more-question{
+	text-decoration: none;
+	color: #333333;
+	font-size: 14px;
+	position: relative;
+	left: 73%;
+}
