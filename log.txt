@@ -44,7 +44,7 @@ what did Nolan do today?
 what does Amanda nee to do?
 目前还没..候命中..哈哈 ：）
 
-2013-03-121
+2013-03-21
 -----------------------------------------------------
 what did Nolan do today?
 1.use mustache.js and require.js
@@ -52,3 +52,19 @@ what did Nolan do today?
 
 what does Amanda need to do?
 1.尽快提供标准图标（背景镂空）
+
+2013-03-22
+-----------------------------------------------------
+what did Nolan do today?
+finish pagination interactive
+
+what does Amanda need to do?
+NONE
+
+2013-03-24
+-----------------------------------------------------
+what did Nolan do today?
+add "contact" view
+
+what does Amanda need to do?
+提供"contact"页面中按钮active背景色以及超链接hover和active的样式
