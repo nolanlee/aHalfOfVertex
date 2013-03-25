@@ -7,9 +7,9 @@ requirejs.config({
     }
 });
 
-requirejs(['module/home/pagination', 'module/common/header'],
+requirejs(['module/home/home', 'module/common/header'],
 
-function(pagination, header) {
-    header.init();
-    pagination.init();
+function(Home, Header) {
+    Header.init();
+    Home.init();
 });

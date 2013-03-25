@@ -68,3 +68,13 @@ add "contact" view
 
 what does Amanda need to do?
 提供"contact"页面中按钮active背景色以及超链接hover和active的样式
+
+2013-03-25
+-----------------------------------------------------
+what did Nolan do today?
+1.fix view some issues in IE 8.
+2.add navigate interactive
+3.issue: home page and pagination have high coupling(need refine next days)
+
+what does Amanda need to do?
+need a meeting for confiming some page view.

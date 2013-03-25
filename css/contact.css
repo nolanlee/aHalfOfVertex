@@ -80,10 +80,13 @@
 	display: block;
 	line-height: 18px;
 }
-#contact-content #question-content #question-body #more-question{
+#contact-content #question-content #more-question{
 	text-decoration: none;
 	color: #333333;
 	font-size: 14px;
 	position: relative;
-	left: 73%;
+	left: 70%;
+}
+#contact-content #question-content #loading {
+	width: 250px;
 }
