@@ -13,7 +13,8 @@ define(['lib/mustache', 'templete/newsTemplete'], function (Mustache, NewsTemple
         $win = $(window),
         $content = $('#content'),
         $newsList = $('#news-list'),
-        $loadingImg = $('#loading-img');
+        $loadingImg = $('#loading-img'),
+        $paginationWrap = $('#pagination-wrap');
 
     var displayLoadingImg = function () {
         $loadingImg.css('display', 'block');
@@ -92,15 +93,14 @@ define(['lib/mustache', 'templete/newsTemplete'], function (Mustache, NewsTemple
     };
 
     var doPagination = function () {
-        PaginationElements.$pagination.remove();
         PaginationElements = {};
         $newsList.empty();
+        $paginationWrap.empty();
         initPage();
     };
 
     var initPagination = function () {
         var initPaginationElements = function () {
-            PaginationElements.$pagination = $('#pagination-wrap'),
             PaginationElements.$previous = $('#previous'),
             PaginationElements.$next = $('#next'),
             PaginationElements.$go = $('#go'),
@@ -150,7 +150,7 @@ define(['lib/mustache', 'templete/newsTemplete'], function (Mustache, NewsTemple
             .length >= data.pageLength * NEWS_PARTS) {
             loadIndex = 1;
             unbindScroll();
-            $content.append(Mustache.render(NewsTemplete.paginationTemplate, paginationFactory(currentPageNum, data.pageTotal)));
+            $paginationWrap.html(Mustache.render(NewsTemplete.paginationTemplate, paginationFactory(currentPageNum, data.pageTotal)));
             initPagination();
         } else {
             loadIndex++;
