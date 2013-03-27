@@ -1,0 +1,12 @@
+.paiting-list {
+	margin: 0 auto;
+}
+.paiting-list .paiting {
+	background: #ffffff;
+	box-shadow: 0px 0px 0 #fff, 0px 0px 0 rgb(196, 196, 196), 0px 0px 10px rgba(0, 0, 0, .1);
+	padding: 6px 6px;
+	margin-top: 6px;
+}
+.paiting-list .paiting .paiting-description {
+	width: 192px;
+}

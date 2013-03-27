@@ -8,6 +8,7 @@ define(['lib/mustache', 'templete/contactTemplete'], function(Mustache, ContactT
 	Contact.init = function() {
 		$content.empty();
 		$content.html(Mustache.render(ContactTemplete.contentTemplete));
+		$content.append(Mustache.render(ContactTemplete.contactOutsaideTemplete));
 		$questionContent = $('#question-content');
 		$loadingImg = $('#loading');
 	};

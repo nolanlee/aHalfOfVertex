@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="../css/home.css" charset="utf-8"/>
 		<link rel="stylesheet" href="../css/contact.css" charset="utf-8"/>
 		<link rel="stylesheet" href="../css/footer.css" charset="utf-8"/>
+		<link rel="stylesheet" href="../css/paiting.css" charset="utf-8"/>
 	</head>
 	<body>
 		<div>
@@ -81,58 +82,35 @@
 			</div>
 		</div>
 		<div id="content">
-			<h1 id="content-title">CONTACT</h1>
-			<div id="contact-content">
-				<div id="message-content">
-					<div id="meassage-header">MESSAGE</div>
-					<div class="input-control">
-						<label class="message-label" for="message-name">*NAME:</label>
-						<input id="message-name" class="message-input" type="text" />
-					</div>
-					<div class="input-control">
-						<label class="message-label" for="message-email">*EMAIL:</label>
-						<input id="message-email" class="message-input" type="email" />
-					</div>
-					<div class="input-control">
-						<label class="message-label" for="message-website">WEBSITE:</label>
-						<input id="message-website" class="message-input" type="url" />
-					</div>
-					<div class="input-control">
-						<label id="meassage-label" for="message-words">*LEAVE YOUR WORDS:</label>
-						<textarea id="message-words"></textarea>
-					</div>
-					<a id="submit-message" href="javascript:">SUBMIT</a>
-				</div>
-				<div id="question-content">
-					<div id="question-header">Q&amp;A</div>
-					<ul id="question-body">
-						<li>
-							<span class="question">Can you updat your blog frequently?</span>
-							<span class="answer">Sorry, I am busy recently, and thanks your support :)</span>
-						</li>
-						<li>
-							<span class="question">Can you updat your blog frequently?</span>
-							<span class="answer">Sorry, I am busy recently, and thanks your support :)</span>
-						</li>
-						<li>
-							<span class="question">Can you updat your blog frequently?</span>
-							<span class="answer">Sorry, I am busy recently, and thanks your support :)</span>
-						</li>
-						<li>
-							<span class="question">Can you updat your blog frequently?</span>
-							<span class="answer">Sorry, I am busy recently, and thanks your support :)</span>
-						</li>
-					</ul>
-					<a id="more-question" href="javascript:">MORE</a>
-				</div>
+			<h1 id="content-title">PAITING</h1>
+			<div class="paiting-list">
+				<div class="paiting"><img src="../images/paiting/1.jpg"/><p class="paiting-description">[泰国 清迈]市内风景秀丽，遍植花草，尤以玫瑰花最为著名，有“北国玫瑰”的雅称，是个可以让人停下来细细品味的城市。正如邓丽君的一首“小城故事”解释不了她对清迈的感情，所以她将一生留在了那里。</p></div>
+				<div class="paiting"><img src="../images/paiting/2.jpg"/></div>
+				<div class="paiting"><img src="../images/paiting/3.jpg"/></div>
+				<div class="paiting"><img src="../images/paiting/4.jpg"/></div>
+				<div class="paiting"><img src="../images/paiting/5.jpg"/><p class="paiting-description">没有人有耐心听你讲完自己的故事，因为每个人都有自己的话要说；没有人喜欢听你抱怨生活，因为每个人都有自己的苦痛；世人多半寂寞，这世界愿意倾听，习惯沉默的人，难得几个。</p></div>
+				<div class="paiting"><img src="../images/paiting/6.jpg"/></div>
+				<div class="paiting"><img src="../images/paiting/7.jpg"/></div>
+				<div class="paiting"><img src="../images/paiting/8.jpg"/></div>
+				<div class="paiting"><img src="../images/paiting/9.jpg"/><p class="paiting-description">没有人有耐心听你讲完自己的故事，因为每个人都有自己的话要说；没有人喜欢听你抱怨生活，因为每个人都有自己的苦痛；世人多半寂寞，这世界愿意倾听，习惯沉默的人，难得几个。</p></div>
+				<div class="paiting"><img src="../images/paiting/10.jpg"/></div>
+				<div class="paiting"><img src="../images/paiting/11.jpg"/></div>
+				<div class="paiting"><img src="../images/paiting/12.jpg"/><p class="paiting-description">细碎的流年，在风中流转成伤。用悲伤的字句祭奠逝去的年华。错过的风景在眸中黯然成伤。蓦然回首，很多曾经珍视的东西，已不知何时流失何处。无处可寻。问风风不语，问雨雨无声。陌上红尘，憧憬一场温暖的绽放。</p></div>
 			</div>
-		</div>
+		</div>	
 		<div id="footer">
 			<div id="footer-nav">
 				<a class="footer-link" href="javascript:">人人主页</a>| <a class="footer-link" href="javascript:">QQ空间</a>| <a class="footer-link" href="javascript:">豆瓣主页</a>| <a class="footer-link" href="javascript:">新浪微博</a>
 			</div>
 		</div>
 		<script src="../js/lib/jquery.js"></script>
-		<script data-main="../js/main.js" src="../js/lib/require.js"></script>
+		<script src="../js/lib/masonry.min.js"></script>
+		<script>
+			$(".paiting-list").masonry({
+				itemSelector: '.paiting',
+				isFitWidth: true,
+				columnWidth: 10
+			});
+		</script>
 	<body>
 </html>

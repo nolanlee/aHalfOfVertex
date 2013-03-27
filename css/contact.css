@@ -90,3 +90,11 @@
 #contact-content #question-content #loading {
 	width: 250px;
 }
+.contact-outside-list {
+	text-align: center;
+}
+
+.contact-outside-list .contact-outside{
+	margin: 10px 15px;
+	width: 48px;
+}

@@ -162,7 +162,6 @@ define(['lib/mustache', 'templete/newsTemplete'], function (Mustache, NewsTemple
 
             if (data != null) {
                 $newsList.append(Mustache.render(NewsTemplete.newsTemplete, data));
-                console.log($newsList.html());
             }
 
             disappearedLoadingImg();

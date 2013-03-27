@@ -35,6 +35,22 @@ define(function() {
 						'</li>'+
 					'{{/questionList}}'+
 				'</ul>'+
-				'{{#isMore}}<a id="more-question" href="javascript:">MORE</a>{{/isMore}}'
+				'{{#isMore}}<a id="more-question" href="javascript:">MORE</a>{{/isMore}}',
+		contactOutsaideTemplete:' <div class="contact-outside-list">'+
+			'<img class="contact-outside" src="../images/logo-douban.png" />'+
+			'<img class="contact-outside" src="../images/logo-weibo.png" />'+
+			'<img class="contact-outside" src="../images/logo-douban.png" />'+
+			'<img class="contact-outside" src="../images/logo-weibo.png" />'+
+			'<img class="contact-outside" src="../images/logo-douban.png" />'+
+			'<img class="contact-outside" src="../images/logo-weibo.png" />'+
+		'</div>'+
+		'<div class="contact-outside-list">'+
+			'<img class="contact-outside" src="../images/logo-douban.png" />'+
+			'<img class="contact-outside" src="../images/logo-weibo.png" />'+
+			'<img class="contact-outside" src="../images/logo-douban.png" />'+
+			'<img class="contact-outside" src="../images/logo-weibo.png" />'+
+			'<img class="contact-outside" src="../images/logo-douban.png" />'+
+			'<img class="contact-outside" src="../images/logo-weibo.png" />'+
+		'</div>'
 	}
 });
