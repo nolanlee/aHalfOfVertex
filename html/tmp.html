@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="../css/contact.css" charset="utf-8"/>
 		<link rel="stylesheet" href="../css/footer.css" charset="utf-8"/>
 		<link rel="stylesheet" href="../css/paiting.css" charset="utf-8"/>
+		<link rel="stylesheet" href="../css/slider.css" charset="utf-8"/>
 	</head>
 	<body>
 		<div>
@@ -83,19 +84,19 @@
 		</div>
 		<div id="content">
 			<h1 id="content-title">PAITING</h1>
-			<div class="paiting-list">
-				<div class="paiting"><img src="../images/paiting/1.jpg"/><p class="paiting-description">[泰国 清迈]市内风景秀丽，遍植花草，尤以玫瑰花最为著名，有“北国玫瑰”的雅称，是个可以让人停下来细细品味的城市。正如邓丽君的一首“小城故事”解释不了她对清迈的感情，所以她将一生留在了那里。</p></div>
-				<div class="paiting"><img src="../images/paiting/2.jpg"/></div>
-				<div class="paiting"><img src="../images/paiting/3.jpg"/></div>
-				<div class="paiting"><img src="../images/paiting/4.jpg"/></div>
-				<div class="paiting"><img src="../images/paiting/5.jpg"/><p class="paiting-description">没有人有耐心听你讲完自己的故事，因为每个人都有自己的话要说；没有人喜欢听你抱怨生活，因为每个人都有自己的苦痛；世人多半寂寞，这世界愿意倾听，习惯沉默的人，难得几个。</p></div>
-				<div class="paiting"><img src="../images/paiting/6.jpg"/></div>
-				<div class="paiting"><img src="../images/paiting/7.jpg"/></div>
-				<div class="paiting"><img src="../images/paiting/8.jpg"/></div>
-				<div class="paiting"><img src="../images/paiting/9.jpg"/><p class="paiting-description">没有人有耐心听你讲完自己的故事，因为每个人都有自己的话要说；没有人喜欢听你抱怨生活，因为每个人都有自己的苦痛；世人多半寂寞，这世界愿意倾听，习惯沉默的人，难得几个。</p></div>
-				<div class="paiting"><img src="../images/paiting/10.jpg"/></div>
-				<div class="paiting"><img src="../images/paiting/11.jpg"/></div>
-				<div class="paiting"><img src="../images/paiting/12.jpg"/><p class="paiting-description">细碎的流年，在风中流转成伤。用悲伤的字句祭奠逝去的年华。错过的风景在眸中黯然成伤。蓦然回首，很多曾经珍视的东西，已不知何时流失何处。无处可寻。问风风不语，问雨雨无声。陌上红尘，憧憬一场温暖的绽放。</p></div>
+			<div id="slider-warp">
+				<div id="slider-nav">
+					<a id="pre" class="slider-nav-button" href="javascript:">&lt;</a>
+					<a id="next" class="slider-nav-button" href="javascript:">&gt;</a>
+					<div id="slider-list-warp">
+						<ul id="slider-list">
+							<li class="slider-content  selected"><img class="slider-image" src="../images/news.jpg"/></li><li class="slider-content"><img class="slider-image" src="../images/news.jpg"/></li><li class="slider-content"><img class="slider-image" src="../images/news.jpg"/></li><li class="slider-content"><img class="slider-image" src="../images/news.jpg"/></li><li class="slider-content"><img class="slider-image" src="../images/news.jpg"/></li><li class="slider-content"><img class="slider-image" src="../images/news.jpg"/></li><li class="slider-content"><img class="slider-image" src="../images/news.jpg"/></li>
+						</ul>
+					</div>
+				</div>
+				<div id="detail">
+					<img id="detail-content" src="../images/news.jpg"/>
+				</div>
 			</div>
 		</div>	
 		<div id="footer">
@@ -104,13 +105,20 @@
 			</div>
 		</div>
 		<script src="../js/lib/jquery.js"></script>
-		<script src="../js/lib/masonry.min.js"></script>
 		<script>
-			$(".paiting-list").masonry({
-				itemSelector: '.paiting',
-				isFitWidth: true,
-				columnWidth: 10
+		$(function(){
+			var offset = 0;
+			$('#pre').click(function(){
+				offset -= 160;
+				$("#slider-list").animate({ left: offset }, 500 );
 			});
+			$('#next').click(function(){
+				offset += 160;
+				$("#slider-list").animate({ left: offset }, 500 );
+			});
+		});
+		
+			
 		</script>
 	<body>
 </html>
