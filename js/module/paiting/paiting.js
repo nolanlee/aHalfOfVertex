@@ -6,8 +6,11 @@ function(Mustache, Masonry, PaitingTemplete) {
 
 	var renderPaitingList = function(waterFall) {
 		$.get("../json/paiting.json", function(data) {
-			$content.html(Mustache.render(PaitingTemplete.paitingTemplete, data));
-			waterFall($(".paiting-list"));
+			var $paitingList = $('.paiting-list');
+			if($paitingList) {
+				$paitingList.html(Mustache.render(PaitingTemplete.paitingListTemplete, data));
+				waterFall($paitingList);
+			}
 		});
 	};
 
@@ -25,6 +28,7 @@ function(Mustache, Masonry, PaitingTemplete) {
 
 	Paiting.init = function() {
 		$content.empty();
+		$content.html(Mustache.render(PaitingTemplete.paitingTemplete));
 		renderPaitingList(waterFall);
 	};
 

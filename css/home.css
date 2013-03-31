@@ -1,17 +1,18 @@
 #content {
     color: #999999;
+    margin-top: 20px;
 }
 #content #content-title {
     color: #F86F4B;
     font-weight: bolder;
     text-align: center;
     font-size: 48px;
-    margin: 20px 0;
+    margin-bottom: 20px;
 }
 #content #content-sidebar {
     float: right;
     position: relative;
-    top: 100px;
+    top: 5px;
     right: 40px;
 }
 #content #content-sidebar:after {
@@ -45,7 +46,7 @@
 #content .news {
     display: inline-block;
     width: 550px;
-    margin-top: 25px;
+    margin-bottom: 25px;
     border-radius: 10px;
     border: solid 1px #dddddd;
     background: #ffffff;
@@ -54,7 +55,7 @@
 #content .time-comment {
     position: relative;
     vertical-align: top;
-    top: 60px;
+    top: 35px;
     display: inline-block;
     border-top: 2px solid #999999;
     width: 100px;

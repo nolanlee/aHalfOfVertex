@@ -1,9 +1,10 @@
-define(['module/contact/contact','module/home/home','module/paiting/paiting'],
-function(Contact, Home, Paiting) {
+define(['module/contact/contact','module/home/home','module/paiting/paiting', 'module/about/about'],
+function(Contact, Home, Paiting, About) {
 	var $content = $('#content'),
 		$gotoContact = $('#gotoContact'),
 		$gotoHome = $('#gotoHome'),
-		$gotoFavorite = $('#gotoFavorite');
+		$gotoFavorite = $('#gotoFavorite'),
+		$gotoAbout = $('#gotoAbout');
 
 	var navigateToContact = function() {
 		Contact.init();
@@ -17,11 +18,16 @@ function(Contact, Home, Paiting) {
 	var navigateToFavorite = function() {
 		Paiting.init();
 	};
+	var navigateToAbout = function() {
+		About.init();
+	};
+
 
 	var navigateListener = function() {
 		$gotoContact.on('click', navigateToContact);
 		$gotoHome.on('click', navigateToHome);
 		$gotoFavorite.on('click', navigateToFavorite);
+		$gotoAbout.on('click', navigateToAbout);
 	};
 
 	var draw = function() {
