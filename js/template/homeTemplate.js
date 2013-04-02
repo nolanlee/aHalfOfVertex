@@ -1,6 +1,6 @@
 define(function(){
 	return {
-		homeTemplete:
+		homeTemplate:
 		 '<h1 id="content-title">NEWS</h1>'+
 		 '<div id="content-sidebar">'+
 				'<div class="content-sidebar-wrap">'+
@@ -20,8 +20,6 @@ define(function(){
 				'</div>'+
 			'</div>'+
 			'<div id="news-list">'+
-			'</div>'+
-			'<img id="loading-img" src="../images/loading.gif"></img>'+
-			'<div id="pagination-wrap"></div>'
+			'</div>'
 	}
 });

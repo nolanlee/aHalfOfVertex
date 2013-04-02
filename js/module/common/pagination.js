@@ -1,20 +1,24 @@
-define(['lib/mustache', 'templete/newsTemplete'], function (Mustache, NewsTemplete) {
+define(['lib/mustache', 'template/paginationTemplate'], function (Mustache, PaginationTemplate) {
     var LOAD_OFFSET = 140,
         PAGE_LENGTH = 15,
         PAGINATION_RANGE = 5,
-        NEWS_PARTS = 3,
-        NEWS_URL = '../json/home.json';
+        DATA_PARTS = 3;
 
     var loadIndex = 1,
         currentPageNum = 1,
         frontPageTotal = 1,
         PaginationElements = {},
+        dataTemplate,
+        dataUrl,
+        loadingImg = '../images/loading.gif',
         $doc = $(document),
         $win = $(window),
-        $content = $('#content'),
-        $newsList,
+        $container = $('#content'), 
+        $dataContainer,
         $loadingImg,
         $paginationWrap;
+
+    var Pagination = {};
 
     var displayLoadingImg = function () {
         $loadingImg.css('display', 'block');
@@ -26,11 +30,16 @@ define(['lib/mustache', 'templete/newsTemplete'], function (Mustache, NewsTemple
 
     var paginationFactory = function (pageNum, pageTotal) {
         var floatListBegin,
+            pageRange = PAGINATION_RANGE,
             Pagination = {
                 pageNumList: []
             };
-            
-        frontPageTotal = Math.ceil(pageTotal / NEWS_PARTS);
+        
+        frontPageTotal = Math.ceil(pageTotal / DATA_PARTS);
+
+        if(frontPageTotal - 2 < PAGINATION_RANGE) {
+            pageRange = frontPageTotal - 2;
+        }
 
         var floatBeginFactory = function () {
             if ((pageNum - 2) > 1 && (pageNum + 2) < frontPageTotal) {
@@ -38,13 +47,14 @@ define(['lib/mustache', 'templete/newsTemplete'], function (Mustache, NewsTemple
             } else if ((pageNum - 2) <= 1 && (pageNum + 2) < frontPageTotal) {
                 floatBegin = 2;
             } else {
-                floatBegin = frontPageTotal - PAGINATION_RANGE;
+                floatBegin = frontPageTotal - pageRange;
             }
             return floatBegin;
         };
 
+
         floatListBegin = floatBeginFactory();
-        
+
         if (pageNum === 1) {
             Pagination.preDisabled = true;
             Pagination.pageNumList[0] = {
@@ -60,31 +70,33 @@ define(['lib/mustache', 'templete/newsTemplete'], function (Mustache, NewsTemple
 
         if (pageNum === frontPageTotal) {
             Pagination.nextDisabled = true;
-            Pagination.pageNumList[PAGINATION_RANGE + 1] = {
+            Pagination.pageNumList[pageRange + 1] = {
                 pageNum: frontPageTotal,
                 pageSelected: true
             };
         } else {
             Pagination.nextEnabled = true;
-            Pagination.pageNumList[PAGINATION_RANGE + 1] = {
+            Pagination.pageNumList[pageRange + 1] = {
                 pageNum: frontPageTotal
             };
         }
 
-        if(floatListBegin > 2) {
-             Pagination.pageNumList[0].pageBreak = true;
+        if (floatListBegin > 2) {
+            Pagination.pageNumList[0].pageBreak = true;
         }
 
-        for (var i = 0; i <PAGINATION_RANGE; i++) {
+        for (var i = 0; i < pageRange; i++) {
             var _pageNum = i + floatListBegin;
 
-            Pagination.pageNumList[i + 1] = {pageNum: _pageNum};
+            Pagination.pageNumList[i + 1] = {
+                pageNum: _pageNum
+            };
 
-            if(i + floatListBegin === pageNum) {
+            if (i + floatListBegin === pageNum) {
                 Pagination.pageNumList[i + 1].pageSelected = true;
             }
 
-            if(i + 1 >= PAGINATION_RANGE && _pageNum < frontPageTotal - 1) {
+            if (i + 1 >= pageRange && _pageNum < frontPageTotal - 1) {
                 Pagination.pageNumList[i + 1].pageBreak = true;
             }
         }
@@ -94,9 +106,10 @@ define(['lib/mustache', 'templete/newsTemplete'], function (Mustache, NewsTemple
 
     var doPagination = function () {
         PaginationElements = {};
-        $newsList.empty();
+        $dataContainer.empty();
         $paginationWrap.empty();
-        readyRender();
+        $loadingImg.empty();
+        renderPagination();
     };
 
     var initPagination = function () {
@@ -132,7 +145,7 @@ define(['lib/mustache', 'templete/newsTemplete'], function (Mustache, NewsTemple
                 var _pageNum = PaginationElements.$pageNumInput.val();
 
                 if (_pageNum && _pageNum.match('^[0-9]*[1-9][0-9]*$')) {
-                    currentPageNum = parseInt(_pageNum);
+                    currentPageNum = parseInt(_pageNum) > frontPageTotal?frontPageTotal : parseInt(_pageNum);
                     doPagination();
                 } else {
                     alert('请输入合法的页码:)');
@@ -145,12 +158,11 @@ define(['lib/mustache', 'templete/newsTemplete'], function (Mustache, NewsTemple
         initPaginationAction();
     };
 
-    var renderNews = function (data) {
-        if ($('.news-wrap')
-            .length >= data.pageLength * NEWS_PARTS) {
+    var renderData = function (data) {
+        if (!data || $dataContainer.children().length >= data.pageLength * DATA_PARTS) {
             loadIndex = 1;
             unbindScroll();
-            $paginationWrap.html(Mustache.render(NewsTemplete.paginationTemplate, paginationFactory(currentPageNum, data.pageTotal)));
+            $paginationWrap.html(Mustache.render(PaginationTemplate.paginationTemplate, paginationFactory(currentPageNum, data.pageTotal)));
             initPagination();
         } else {
             loadIndex++;
@@ -161,16 +173,15 @@ define(['lib/mustache', 'templete/newsTemplete'], function (Mustache, NewsTemple
             }
 
             if (data != null) {
-                $newsList.append(Mustache.render(NewsTemplete.newsTemplete, data));
+                $dataContainer.append(Mustache.render(dataTemplate, data));
             }
 
             disappearedLoadingImg();
         }
     };
 
-    var getNews = function (handler) {
-        $.get(NEWS_URL, (currentPageNum * NEWS_PARTS) + loadIndex, function (
-        data) {
+    var getData = function (handler) {
+        $.get(dataUrl, (currentPageNum - 1) * DATA_PARTS + loadIndex, function (data) {
             handler(data);
         });
     };
@@ -180,7 +191,7 @@ define(['lib/mustache', 'templete/newsTemplete'], function (Mustache, NewsTemple
             loadHeight = $doc.height() - LOAD_OFFSET;
 
         if (loadHeight <= windowHeight) {
-            getNews(renderNews);
+            getData(renderData);
         }
     };
 
@@ -192,22 +203,32 @@ define(['lib/mustache', 'templete/newsTemplete'], function (Mustache, NewsTemple
         $win.unbind('scroll', loadNext);
     };
 
-    var readyRender = function(){
+    var renderPagination = function () {
         bindScroll();
-        getNews(renderNews);
+        getData(renderData);
     };
 
-    var initPage = function (newsList, loadingImg, paginationWrap) {
+    var beforeRenderPagination = function() {
+        $container.append(Mustache.render(PaginationTemplate.paginationReadyTemplate, {'loadingImg':loadingImg}));
+        $loadingImg = $('#loading-img');
+        $paginationWrap = $('#pagination-wrap');
+    };
+
+    Pagination.init = function (_dataContainer, _dataTemplate, _dataUrl, _container, _loadingImg) {
         loadIndex = 1;
         currentPageNum = 1;
-        $newsList = newsList;
-        $loadingImg = loadingImg;
-        $paginationWrap = paginationWrap;
-        readyRender();
+        $dataContainer = _dataContainer;
+        dataTemplate = _dataTemplate;
+        dataUrl = _dataUrl;
+        if(_container) {
+            $container = _container;
+        }
+        if(_loadingImg) {
+            loadingImg = _loadingImg;
+        }
+        beforeRenderPagination();
+        renderPagination();
     };
 
-    return {
-        init: initPage
-    }
-
+    return Pagination;
 });

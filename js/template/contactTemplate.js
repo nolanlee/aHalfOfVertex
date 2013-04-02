@@ -1,6 +1,6 @@
 define(function() {
 	return {
-		contentTemplete: '<h1 id="content-title">CONTACT</h1>'+
+		contentTemplate: '<h1 id="content-title">CONTACT</h1>'+
 			'<div id="contact-content">'+
 				'<div id="message-content">'+
 					'<div id="meassage-header">MESSAGE</div>'+
@@ -27,7 +27,7 @@ define(function() {
 					'<img id="loading" src="../images/loading2.gif" />'+
 				'</div>'+
 			'</div>',
-		questinonListTemplete: '<ul id="question-body">'+
+		questinonListtemplate: '<ul id="question-body">'+
 					'{{#questionList}}'+
 						'<li>'+
 							'<span class="question">{{question}}</span>'+
@@ -36,7 +36,7 @@ define(function() {
 					'{{/questionList}}'+
 				'</ul>'+
 				'{{#isMore}}<a id="more-question" href="javascript:">MORE</a>{{/isMore}}',
-		contactOutsaideTemplete:' <div class="contact-outside-list">'+
+		contactOutsaidetemplate:' <div class="contact-outside-list">'+
 			'<img class="contact-outside" src="../images/logo-douban.png" />'+
 			'<img class="contact-outside" src="../images/logo-weibo.png" />'+
 			'<img class="contact-outside" src="../images/logo-douban.png" />'+

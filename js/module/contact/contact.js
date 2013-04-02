@@ -1,4 +1,4 @@
-define(['lib/mustache', 'templete/contactTemplete'], function(Mustache, ContactTemplete) {
+define(['lib/mustache', 'template/contactTemplate'], function(Mustache, contactTemplate) {
 	var Contact = {},
 		$content = $('#content'),
 		QUESTION_URL = '../json/question.json',
@@ -7,8 +7,8 @@ define(['lib/mustache', 'templete/contactTemplete'], function(Mustache, ContactT
 
 	Contact.init = function() {
 		$content.empty();
-		$content.html(Mustache.render(ContactTemplete.contentTemplete));
-		$content.append(Mustache.render(ContactTemplete.contactOutsaideTemplete));
+		$content.html(Mustache.render(contactTemplate.contentTemplate));
+		$content.append(Mustache.render(contactTemplate.contactOutsaideTemplate));
 		$questionContent = $('#question-content');
 		$loadingImg = $('#loading');
 	};
@@ -19,7 +19,7 @@ define(['lib/mustache', 'templete/contactTemplete'], function(Mustache, ContactT
 				if($loadingImg) {
 					$loadingImg.remove();
 				}
-				$questionContent.append(Mustache.render(ContactTemplete.questinonListTemplete, data));
+				$questionContent.append(Mustache.render(contactTemplate.questinonListTemplate, data));
 			});
 		}
 	};

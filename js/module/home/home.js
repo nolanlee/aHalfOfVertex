@@ -1,11 +1,13 @@
-define(['module/home/pagination', 'lib/mustache', 'templete/homeTemplete'], function(Pagination, Mustache, HomeTemplete) {
+define(['module/common/pagination', 'lib/mustache', 'template/homeTemplate', 'template/newsTemplate'],
+function(Pagination, Mustache, HomeTemplate, NewsTemplate) {
 	var Home = {},
-	$content = $('#content');
+	$content = $('#content'),
+	NEWS_URL = '../json/home.json';
 
 	Home.init = function() {
 		$content.empty();
-		$content.html(Mustache.render(HomeTemplete.homeTemplete));
-		Pagination.init($('#news-list'), $('#loading-img'), $('#pagination-wrap'));
+		$content.html(Mustache.render(HomeTemplate.homeTemplate));
+		Pagination.init($('#news-list'), NewsTemplate.newsTemplate, NEWS_URL);
 	};
 	
 	return Home;

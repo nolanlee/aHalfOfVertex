@@ -2,7 +2,7 @@ requirejs.config({
     baseUrl: '../js',
     paths: {
         module: 'module',
-        templete: 'templete',
+        template: 'template',
         lib: 'lib'
     }
 });

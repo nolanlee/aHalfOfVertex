@@ -1,18 +1,9 @@
-define(['lib/mustache', 'lib/masonry.min', 'templete/paitingTemplete'],
+define(['lib/mustache', 'lib/masonry.min', 'module/common/pagination', 'template/paitingTemplate'],
 
-function(Mustache, Masonry, PaitingTemplete) {
+function(Mustache, Masonry, Pagination, PaitingTemplate) {
 	var Paiting = {},
-	$content = $('#content');
-
-	var renderPaitingList = function(waterFall) {
-		$.get("../json/paiting.json", function(data) {
-			var $paitingList = $('.paiting-list');
-			if($paitingList) {
-				$paitingList.html(Mustache.render(PaitingTemplete.paitingListTemplete, data));
-				waterFall($paitingList);
-			}
-		});
-	};
+	$content = $('#content'),
+	PAITING_URL = '../json/paiting.json';
 
 	var waterFall = function($paitingList) {
 		if ($paitingList) {
@@ -27,9 +18,12 @@ function(Mustache, Masonry, PaitingTemplete) {
 	};
 
 	Paiting.init = function() {
+		var $paitingList;
 		$content.empty();
-		$content.html(Mustache.render(PaitingTemplete.paitingTemplete));
-		renderPaitingList(waterFall);
+		$content.html(Mustache.render(PaitingTemplate.paitingTemplate));
+		$paitingList = $('.paiting-list');
+		Pagination.init($paitingList, PaitingTemplate.paitingListTemplate, PAITING_URL);
+		//waterFall($paitingList);
 	};
 
 	return Paiting;
