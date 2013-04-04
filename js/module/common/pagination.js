@@ -165,7 +165,6 @@ define(['lib/mustache', 'template/paginationTemplate'], function (Mustache, Pagi
             $paginationWrap.html(Mustache.render(PaginationTemplate.paginationTemplate, paginationFactory(currentPageNum, data.pageTotal)));
             initPagination();
         } else {
-            loadIndex++;
             displayLoadingImg();
 
             if (typeof data != 'object') {
@@ -174,9 +173,14 @@ define(['lib/mustache', 'template/paginationTemplate'], function (Mustache, Pagi
 
             if (data != null) {
                 $dataContainer.append(Mustache.render(dataTemplate, data));
+                if(Pagination.WaterFall && loadIndex == 1){
+                    Pagination.WaterFall.waterFallInit($dataContainer);
+                    Pagination.WaterFall.waterFallReload($dataContainer);
+                }
             }
 
             disappearedLoadingImg();
+            loadIndex++;
         }
     };
 
@@ -192,6 +196,9 @@ define(['lib/mustache', 'template/paginationTemplate'], function (Mustache, Pagi
 
         if (loadHeight <= windowHeight) {
             getData(renderData);
+            if(Pagination.WaterFall){
+                Pagination.WaterFall.waterFallReload($dataContainer);
+            }
         }
     };
 
@@ -206,6 +213,7 @@ define(['lib/mustache', 'template/paginationTemplate'], function (Mustache, Pagi
     var renderPagination = function () {
         bindScroll();
         getData(renderData);
+        
     };
 
     var beforeRenderPagination = function() {
@@ -214,12 +222,15 @@ define(['lib/mustache', 'template/paginationTemplate'], function (Mustache, Pagi
         $paginationWrap = $('#pagination-wrap');
     };
 
-    Pagination.init = function (_dataContainer, _dataTemplate, _dataUrl, _container, _loadingImg) {
+    Pagination.init = function (_dataContainer, _dataTemplate, _dataUrl, _waterFall, _container, _loadingImg) {
         loadIndex = 1;
         currentPageNum = 1;
         $dataContainer = _dataContainer;
         dataTemplate = _dataTemplate;
         dataUrl = _dataUrl;
+        if(_waterFall) {
+            Pagination.WaterFall = _waterFall;
+        }
         if(_container) {
             $container = _container;
         }

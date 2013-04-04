@@ -27,7 +27,7 @@ define(function() {
 					'<img id="loading" src="../images/loading2.gif" />'+
 				'</div>'+
 			'</div>',
-		questinonListtemplate: '<ul id="question-body">'+
+		questinonListTemplate: '<ul id="question-body">'+
 					'{{#questionList}}'+
 						'<li>'+
 							'<span class="question">{{question}}</span>'+
