@@ -1,0 +1,27 @@
+.ui-area {
+	margin-bottom: 30px;
+	text-align: center;
+}
+.ui-area .ui-owner {
+	display: inline-block;
+	text-align: left;
+}
+.ui-area .ui-owner .ui-owner-photo {
+	width: 140px;
+	height: 140px;
+	background: #BBDD6E;
+}
+.ui-area .ui-owner  .ui-owner-info {
+	display: block;
+	margin-top: 10px;
+	color: #BBDD6E;
+}
+.ui-area .ui-content {
+	display: inline-block;
+	margin-left: 30px;
+	width: 650px;
+	height: 500px;
+	background: #BBDD6E;
+	vertical-align: top;
+}
+

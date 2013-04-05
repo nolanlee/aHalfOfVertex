@@ -36,7 +36,7 @@ define(function() {
 					'{{/questionList}}'+
 				'</ul>'+
 				'{{#isMore}}<a id="more-question" href="javascript:">MORE</a>{{/isMore}}',
-		contactOutsaidetemplate:' <div class="contact-outside-list">'+
+		contactOutsaideTemplate:' <div class="contact-outside-list">'+
 			'<img class="contact-outside" src="../images/logo-douban.png" />'+
 			'<img class="contact-outside" src="../images/logo-weibo.png" />'+
 			'<img class="contact-outside" src="../images/logo-douban.png" />'+

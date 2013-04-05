@@ -2,15 +2,13 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-eqviv="X-UA-Compatible" content="IE=edge" />
 		<title>My Web</title>
 		<link rel="stylesheet" href="../css/reset.css" charset="utf-8"/>
 		<link rel="stylesheet" href="../css/header.css" charset="utf-8"/>
 		<link rel="stylesheet" href="../css/home.css" charset="utf-8"/>
-		<link rel="stylesheet" href="../css/contact.css" charset="utf-8"/>
 		<link rel="stylesheet" href="../css/footer.css" charset="utf-8"/>
-		<link rel="stylesheet" href="../css/paiting.css" charset="utf-8"/>
-		<link rel="stylesheet" href="../css/slider.css" charset="utf-8"/>
+		<link rel="stylesheet" href="../css/wallpaper.css" charset="utf-8"/>
 	</head>
 	<body>
 		<div>
@@ -65,7 +63,7 @@
 						<a class="nav-primary-button" href="javascript:">VI</a>
 					</li>
 					<li>
-						<a class="nav-primary-button" href="javascript:">UI</a>
+						<a class="nav-primary-button" href="javascript:">vi</a>
 					</li>
 					<li>
 					<a class="nav-primary-button" href="javascript:">海报</a>
@@ -83,19 +81,26 @@
 			</div>
 		</div>
 		<div id="content">
-			<h1 id="content-title">PAITING</h1>
-			<div id="slider-warp">
-				<div id="slider-nav">
-					<a id="pre" class="slider-nav-button" href="javascript:">&lt;</a>
-					<a id="next" class="slider-nav-button" href="javascript:">&gt;</a>
-					<div id="slider-list-warp">
-						<ul id="slider-list">
-							<li class="slider-content  selected"><img class="slider-image" src="../images/news.jpg"/></li><li class="slider-content"><img class="slider-image" src="../images/news.jpg"/></li><li class="slider-content"><img class="slider-image" src="../images/news.jpg"/></li><li class="slider-content"><img class="slider-image" src="../images/news.jpg"/></li><li class="slider-content"><img class="slider-image" src="../images/news.jpg"/></li><li class="slider-content"><img class="slider-image" src="../images/news.jpg"/></li><li class="slider-content"><img class="slider-image" src="../images/news.jpg"/></li>
-						</ul>
+			<h1 id="content-title">WALLPAPER</h1>
+			<div id="wallpaper-wrap">
+				<div class="wallpaper-content">
+					<img class="wallpaper" src="../images/news.jpg"/>
+					<div class="wallpaper-info">
+						<div class="wallpaper-info-wrap">
+							<span class="wallpaper-label">NAME:</span>
+							<span class="wallpaper-name">Pretty Girl</span>
+						</div>
+						<div class="wallpaper-info-wrap">
+							<span class="wallpaper-label">SIZE:</span>
+							<ul class="wallpaper-size-list">
+								<li><a class="wallpaper-size" href="javascript:">800*600</a></li>
+								<li><a class="wallpaper-size"  href="javascript:">1024*768</a></li>
+								<li><a class="wallpaper-size" href="javascript:">1280*960</a></li>
+								<li><a class="wallpaper-size" href="javascript:">1600*1200</a></li>
+								<li><a class="wallpaper-size" href="javascript:">1280*1024</a></li>
+							</ul>	
+						</div>
 					</div>
-				</div>
-				<div id="detail">
-					<img id="detail-content" src="../images/news.jpg"/>
 				</div>
 			</div>
 		</div>	
@@ -107,18 +112,8 @@
 		<script src="../js/lib/jquery.js"></script>
 		<script>
 		$(function(){
-			var offset = 0;
-			$('#pre').click(function(){
-				offset -= 160;
-				$("#slider-list").animate({ left: offset }, 500 );
-			});
-			$('#next').click(function(){
-				offset += 160;
-				$("#slider-list").animate({ left: offset }, 500 );
-			});
-		});
-		
 			
+		});
 		</script>
 	<body>
 </html>

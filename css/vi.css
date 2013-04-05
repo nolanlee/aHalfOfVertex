@@ -1,0 +1,41 @@
+#vi-wrap {
+	margin-bottom: 30px;
+	text-align: center;
+}
+#vi-wrap .vi-owner-list {
+	display: inline-block;
+	text-align: left;
+}
+#vi-wrap .vi-owner {
+	margin-bottom: 20px;
+}
+#vi-wrap .vi-owner .vi-owner-photo {
+	width: 140px;
+	height: 140px;
+	background: #FFFF99;
+}
+#vi-wrap .vi-owner  .vi-owner-info {
+	display: block;
+	margin-top: 10px;
+	color: #FFFF99;
+}
+#vi-wrap .vi-owner-arrow {
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	margin-left: 12px;
+	top: 60px;
+	width:0;
+	height: 0;
+	border-top: 11px solid transparent;
+	border-bottom:11px solid transparent;
+	border-right: 18px solid #FFFF99;
+}
+#vi-wrap .vi-content {
+	display: inline-block;
+	width: 650px;
+	height: 1100px;
+	background: #FFFF99;
+	vertical-align: top;
+}
+

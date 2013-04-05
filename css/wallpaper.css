@@ -1,0 +1,37 @@
+#wallpaper-wrap {
+	text-align: center;
+}
+#wallpaper-wrap .wallpaper-content {
+	display: inline-block;
+	background: #ffffff;
+	margin: 5px 10px;
+	padding: 10px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 0 #fff, 0px 0px 0 rgb(196, 196, 196), 0px 0px 10px rgba(0, 0, 0, .1);
+}
+#wallpaper-wrap .wallpaper {
+	width: 200px;
+}
+#wallpaper-wrap .wallpaper-info {
+	padding: 5px;
+}
+#wallpaper-wrap .wallpaper-info-wrap {
+	margin-bottom: 5px;
+}
+#wallpaper-wrap .wallpaper-info .wallpaper-label {
+	display: inline-block;
+	text-align: left;
+	width: 70px;
+	font-size: 18px;
+	color: #F76F4B;
+}
+#wallpaper-wrap .wallpaper-info .wallpaper-size-list {
+	display: inline-block;
+	list-style: none;
+	vertical-align: top;
+	
+}
+#wallpaper-wrap .wallpaper-info .wallpaper-size-list .wallpaper-size {
+	color: #999999;
+	line-height: 24px;
+}
